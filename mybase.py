@@ -33,6 +33,9 @@ class UserDBBase(metaclass=ABCMeta):
     @abstractmethod
     def ExtarctWatched(self, userid :str):
         pass
+    @abstractmethod
+    def ExtractUserList(self):
+        pass
 
 class recommenderBase(metaclass=ABCMeta):
     @abstractmethod
@@ -87,17 +90,25 @@ class MovieDBBase(metaclass=ABCMeta):
     @abstractmethod
     def GetGenreMovies(self,genre):
         pass
+    @abstractmethod
+    def GetTitles(self):
+        pass
 
 
 # ---- View ----
-
+# ---- View ----
+#####수정
 class EntrancePageBase(metaclass=ABCMeta):
     @abstractmethod
-    def LogIn(self):
+    def LogIn(self,userid):
         pass
 
     @abstractmethod
-    def Register(self):
+    def Register(self,userid):
+        pass
+
+    @abstractmethod
+    def getnow(self):
         pass
 
 class GenrepageBase(metaclass= ABCMeta):
@@ -110,6 +121,7 @@ class GenrepageBase(metaclass= ABCMeta):
     def showrecgenre(self):
         # Print list( call getRecGenre )
         pass
+
 
 class MainpageBase(metaclass=ABCMeta):
     @abstractmethod

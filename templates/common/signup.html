@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="container my-3">
+    <div class="row my-3">
+        <div class="col-4">
+            <h4>회원가입</h4>
+        </div>
+        <div class="col-8 text-right">
+            <span>또는 <a href="{% url 'cat:login' %}">로그인 하세요.</a></span>
+        </div>
+    </div>
+    <form method="post" class="post-form">
+        {% csrf_token %}
+
+        <div class="form-group">
+            <label for="id">ID</label>
+            <input type="text" class="form-control" name="id" id="id" value="{{ form.id.value|default_if_none:'' }}">
+        </div>
+
+        <button type="submit" class="btn btn-primary">생성하기</button>
+    </form>
+</div>
+{% endblock %}
